@@ -9,28 +9,58 @@ app.set('views', './views')
 app.set('view engine', 'mustache')
 
 //Listening on root
-app.get('/todo/', function (req, res) {
+app.get('/todo/', function(req, res) {
   // TODO write your code here
 
+
   let todoList = {
-      title: 'Todo'
-    , messages: [
-          'Learn Node basics'
-        , 'Learn Express basics'
-        , 'Learn mustache'
-        , 'Learn HTML forms with Express'
-        , 'Learn about authentication'
-        , 'Learn how to connect PostgreSQL'
-        , 'Learn how to crete databases'
-        , 'Learn SQL'
-        , 'Learn How connect to PostgreSQL from Node'
-        , 'Learn how to use Sequelize'
-      ]
+    title: 'Todo',
+    items: [{
+        'name': "Learn Node basics",
+        'done': true
+      },
+      {
+        'name': "Learn Express basics",
+        'done': true
+      },
+      {
+        'name': "Learn Mustache",
+        'done': true
+      },
+      {
+        'name': "Learn HTML forms with Express",
+        'done': false
+      },
+      {
+        'name': "Learn about authentication",
+        'done': false
+      },
+      {
+        'name': "Learn how to connect to PostgreSQL",
+        'done': false
+      },
+      {
+        'name': "Learn how to create databases",
+        'done': false
+      },
+      {
+        'name': "Learn SQL",
+        'done': false
+      },
+      {
+        'name': "Learn how to connect to PostgreSQL from Node",
+        'done': false
+      },
+      {
+        'name': "Learn how to use Sequelize",
+        'done': false
+      },
+    ]
   }
 
-  res.render('todo.mustache', todoList);
+  res.render('todo', todoList);
 })
 
-app.listen(3000, function () {
+app.listen(3000, function() {
   console.log('Successfully started express application!');
 })
